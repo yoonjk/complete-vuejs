@@ -22,6 +22,17 @@ export default {
 }
 </script>
 <style scoped>
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+.error {
+  color: red;
+}
 button:disabled {
   opacity: 0.5;
 }
@@ -30,6 +41,8 @@ button {
   color: black;
   border: none;
   border-radius: 5px;
-
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 16px;
 }
 </style>
