@@ -11,15 +11,9 @@ const app = Vue.createApp({
       Odd
     </p>
     
-    <div v-for="number in numbers">
+    <div v-for="number in evenList">
       <div>
-        {{ number }} 
-        <span v-if="isEven(number)">
-          Even
-        </span>
-        <span v-else>
-          Odd
-        </span>
+        {{ number }}
       </div>
     </div>
   `,
@@ -27,6 +21,11 @@ const app = Vue.createApp({
     return {
       count: 0,
       numbers: [1,2,3,4,5,6,7,8,9,10]
+    }
+  },
+  computed: {
+    evenList() {
+      return this.numbers.filter(num => this.isEven(num))
     }
   },
   methods: {
