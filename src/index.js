@@ -11,7 +11,9 @@ const app = Vue.createApp({
       Odd
     </p>
     
-    <div v-for="number in evenList">
+    <div v-for="number in numbers"
+      v-bind:class="getClass(number)"
+    >
       <div>
         {{ number }}
       </div>
@@ -29,6 +31,9 @@ const app = Vue.createApp({
     }
   },
   methods: {
+    getClass(number) {
+      return this.isEven(number) ? 'blue' : 'red'
+    },
     increment() {
       this.count += 1
     },
