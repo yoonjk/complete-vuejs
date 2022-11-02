@@ -1,4 +1,4 @@
-import * as Vue from 'vue/dist/vue.esm-bundler.js'
+import { createApp } from 'vue'
 
 const app = Vue.createApp({
   template: `
