@@ -1,8 +1,10 @@
 <template>
   <button
     v-bind:style="{ background, color }"
-    
-  >Button</button>
+    v-bind:disabled="disabled"    
+  >
+    Button
+  </button>
 </template>
 <script>
 export default {
@@ -19,5 +21,15 @@ export default {
   }
 }
 </script>
-<style >
+<style scoped>
+button:disabled {
+  opacity: 0.5;
+}
+button {
+  background: none;
+  color: black;
+  border: none;
+  border-radius: 5px;
+
+}
 </style>
