@@ -39,7 +39,7 @@ button:disabled {
 button {
   background: none;
   color: black;
-  border: none;
+  border: 1px solid silver;;
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
