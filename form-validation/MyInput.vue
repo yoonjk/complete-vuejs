@@ -6,7 +6,7 @@
   <input 
     :id="name" 
     :value="value"
-    v-on:input="input"
+    @input="input"
   />
 </template>
 <script>
@@ -21,16 +21,18 @@ export default {
       // required: boolean 
       type: Object,
       default: {}
+    },
+    value: {
+      type: String,
+      required: true
     }
   }, 
   methods: {
     input($event) {
-      this.value = $event.target.value
-    }
-  },
-  data() {
-    return {
-      value: ''
+      this.$emit('update', {
+        name: this.name.toLowerCase(),
+        value: $event.target.value,
+      })
     }
   },
 
