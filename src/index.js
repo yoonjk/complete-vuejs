@@ -3,13 +3,17 @@ import * as Vue from 'vue/dist/vue.esm-bundler.js'
 const Num = {
   props: ['number'],
   template: `
-    <div 
+    <button 
       v-bind:class="getClass(number)"
+      v-on:click="click"
     >
       {{ number }}
-    </div>
+    </button>
   `,
   methods: {
+    click() {
+      this.$emit('chosen', this.number)
+    },
     getClass(number) {
       return this.isEven(number) ? 'blue' : 'red'
     },
@@ -25,53 +29,36 @@ const app = Vue.createApp({
   },
 
   template: `
-    <button v-on:click="increment">Increment</button>
-    <p>{{ count }} </p>
-    
-    <hello greeting="Hello!" />
-    <Hello greeting="Hi!" />
-    <input 
-      type="checkbox"
-      v-model="value"
-      value="a"
-    />
-    <input 
-      type="checkbox"
-      v-model="value"
-      value="b"
-    />
-    
-    {{ value }}
-
-    <div class="red">
-      {{ error }}
-    </div>
     <num 
       v-for="number in numbers"
       v-bind:number="number" 
+      v-on:chosen="addNumber"
+    />
+
+    <br />
+
+    <num 
+      v-for="number in numberHistory"
+      v-bind:number="number"
     />
   `,
   data() {
     return {
-      count: 0,
       numbers: [1,2,3,4,5,6,7,8,9,10],
-      value: ['a']
+      numberHistory: []
+
     }
   },
   computed: {
     evenList() {
       return this.numbers.filter(num => this.isEven(num))
     },
-    error() {
-      if (this.value.length < 5) {
-        return 'Must be greater than 5'
-      }
-    }
   },
 
   methods: {
-    increment() {
-      this.count += 1
+    addNumber(number) {
+      console.log('number', number)
+      this.numberHistory.push(number)
     }
   }
 })
