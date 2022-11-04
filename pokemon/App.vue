@@ -9,13 +9,26 @@
     <div class="description">
       description
     </div>
+    <button @click="fetchData">Fetch</button>
   </div>
 </template>
 
 <script>
-
+const api = 'https://pokeapi.co/api/v2/pokemon'
 export default {
-
+  methods: {
+    async fetchData() {
+      const response = await window.fetch(`${api}/1`)
+      const json = await response.json()
+      this.pokemon = {
+        id: json.id,
+        name: json.name,
+        sprite: json.sprites.other['official-artwork'].front_default,
+        types: json.types.map(type => type.type)
+      }
+      console.log(this.pokemon)
+    }
+  }
 }
 </script>
 
