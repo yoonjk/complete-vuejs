@@ -11,3 +11,6 @@ Hi! Welcome to my course on Vue.js 3. Let's have a great time learning Vue.js 3 
 
 ## Pokemon
 - yarn vite --config vite.config.js pokemon
+
+## Composition
+- yarn vite --config vite.config.js compositio
