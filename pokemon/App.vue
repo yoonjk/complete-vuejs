@@ -16,6 +16,11 @@
 <script>
 const api = 'https://pokeapi.co/api/v2/pokemon'
 export default {
+  data() {
+    return {
+      pokemon: null
+    }
+  },
   methods: {
     async fetchData() {
       const response = await window.fetch(`${api}/1`)
