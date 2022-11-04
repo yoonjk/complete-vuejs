@@ -4,6 +4,8 @@
       v-for="pokemon in pokemons" 
       :key="pokemon.id"
       @click="fetchEvolutions(pokemon)"
+      :class="{ opace: true }"
+      class="card"
     >
       <template v-slot:title>
         {{ pokemon.name }}
@@ -98,7 +100,13 @@ export default {
 .cards {
   display: flex
 }
+.opace {
+  opacity: 0.5;
+}
 
+.card:hover {
+  opacity: 1.0;
+}
 img {
   width: 100%;
 }
