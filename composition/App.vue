@@ -2,10 +2,11 @@
   <button @click="increment"> {{ count }} </button>
   <button @click="inc('a')"> {{ numbers.a }}</button>
   <button @click="inc('b')"> {{ numbers.b }}</button>
+  <p> {{ total }}</p>
 </template>
   
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 export default {
   setup() {
@@ -14,8 +15,8 @@ export default {
 
     // reactive => {}
     const numbers = reactive({
-        a: 0,
-        b: 0
+        a: 1,
+        b: 2
     })
 
     const inc = (n) => {
@@ -25,18 +26,27 @@ export default {
     const increment = () => {
         count.value++
     }
-    
+
+    const total = computed(() => {
+        return count.value +  numbers.a + numbers.b
+    })
+
     return {
       count,
+      total,
       inc,
       increment,
-      numbers
+      numbers,
     }
   }
 }
 </script>
 
 <style scoped>
+p {
+    font-size: 40px;
+}
+
 button {
     height: 100px;
     width: 100px;
