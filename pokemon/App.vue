@@ -1,15 +1,23 @@
 <template>
-  <div class="card">
-    <div class="title">
-      title
+  <div class="cards">
+    <div 
+      class="card"
+      v-for="p in pokemon"
+      :key="p.id"
+    >
+      <div class="title">
+        {{ p.name }}
+      </div>
+      <div 
+        class="content">
+        <img :src="p.sprite">
+      </div>
+      <div class="description">
+        <div v-for="type in p.types" :key="type">
+          {{ type }}
+        </div>
+      </div>
     </div>
-    <div class="content">
-      content
-    </div>
-    <div class="description">
-      description
-    </div>
-    
   </div>
 </template>
 
@@ -49,6 +57,13 @@ export default {
 </script>
 
 <style scoped>
+.cards {
+  display: flex;
+}
+
+img {
+  width: 100%;
+}
 .card {
   border: 1px solid silver;
   border-radius: 8px;
