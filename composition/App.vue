@@ -6,7 +6,7 @@
 </template>
   
 <script>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch, watchEffect } from 'vue'
 
 export default {
   setup() {
@@ -26,7 +26,9 @@ export default {
     const increment = () => {
         count.value++
     }
-
+    watchEffect(() => {
+        console.log(`count: ${numbers.a} `)
+    })
     const total = computed(() => {
         return count.value +  numbers.a + numbers.b
     })
