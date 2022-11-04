@@ -9,7 +9,7 @@
     <div class="description">
       description
     </div>
-    <button @click="fetchData">Fetch</button>
+    
   </div>
 </template>
 
@@ -20,9 +20,13 @@ const ids = [1, 4, 7]
 export default {
   data() {
     return {
-      pokemon: null
+      pokemon: []
     }
   },
+  created() {
+    this.fetchData()
+  },
+
   methods: {
     async fetchData() {
       const responses = await Promise.all(
