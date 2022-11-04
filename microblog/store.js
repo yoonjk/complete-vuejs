@@ -6,7 +6,13 @@ class Store {
         {
           id: 1,
           title: 'Title',
-          content: 'Learning Vue.js'
+          content: 'Learning Vue.js',
+          likes: 10,
+          hashtags: [
+            'vue',
+            'javascript',
+            'composition api'
+          ]
         }
       ]
     })
