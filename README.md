@@ -8,3 +8,6 @@ Hi! Welcome to my course on Vue.js 3. Let's have a great time learning Vue.js 3 
 
 ## Start App
 - yarn vite --config vite.config.js form-validation
+
+## Pokemon
+- yarn vite --config vite.config.js pokemon
