@@ -24,7 +24,7 @@ export default {
         id: json.id,
         name: json.name,
         sprite: json.sprites.other['official-artwork'].front_default,
-        types: json.types.map(type => type.type)
+        types: json.types.map(type => type.type.name)
       }
       console.log(this.pokemon)
     }
